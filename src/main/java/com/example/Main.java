@@ -151,7 +151,6 @@ public class Main {
 					if (isNullOrEmpty(strShohin1)) {
 						model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c")));
 					}
-		}
 				}
 				else {
 					bd = bd * 1.08;
@@ -176,7 +175,6 @@ public class Main {
         // 画面に渡す値を設定
         model.addAttribute("form", form);
         model.addAttribute("records", output);
-        model.addAttribute("test", "test");
         // search画面を表示
         return "search";
     }
