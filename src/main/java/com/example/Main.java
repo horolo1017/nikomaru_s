@@ -194,4 +194,12 @@ public class Main {
         return val;
     }
 
+	private String format(double d){
+		
+		if(d == (long) d)
+		return String.format("%d",(int)d);
+		else
+		return String.format("%s",d);
+	}
+
 }
