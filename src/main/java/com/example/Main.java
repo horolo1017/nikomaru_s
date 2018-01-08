@@ -154,9 +154,8 @@ public class Main {
 				}
 				else {
 					bd = bd * 1.08;
-					String bds = String.valueOf(bd);
-					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
-					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
+					bd = Math.floor(bd);
+					String bds = format(bd);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
 					if (!isNullOrEmpty(strShohin1)) {
 						model.addAttribute("price", bds);
