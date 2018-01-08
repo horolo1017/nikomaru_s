@@ -49,6 +49,9 @@
                             <span th:text="${test}"></span>
               </br>
             </form>
+		<ul th:each="record : ${records}">
+			<li th:text="${record}"/>
+		</ul>
             </div>
           </div>
         </div>
