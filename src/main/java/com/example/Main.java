@@ -149,7 +149,7 @@ public class Main {
 				if (bd == 0) {
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c")));
 					if (!isNullOrEmpty(strShohin1)) {
-						model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c")));
+						model.addAttribute("price", "価格未設定");
 					}
 				}
 				else {
@@ -158,7 +158,12 @@ public class Main {
 					String bds = format(bd);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
 					if (!isNullOrEmpty(strShohin1)) {
-						model.addAttribute("price", bds);
+						if (!isNullOrEmpty(bd)) {
+							model.addAttribute("price", "価格：" + bds + "円（税込）");
+						}
+						else {
+							model.addAttribute("price", "価格未設定");
+						}
 					}
 
 				}
