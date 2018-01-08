@@ -148,8 +148,10 @@ public class Main {
 				Double bd = rs.getDouble("goods1Value__c");
 				if (bd == 0) {
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c")));
-					model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c")));
-
+					if (isNullOrEmpty(strShohin1)) {
+						model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c")));
+					}
+		}
 				}
 				else {
 					bd = bd * 1.08;
@@ -157,7 +159,10 @@ public class Main {
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
-					model.addAttribute("price", bds);
+					if (isNullOrEmpty(strShohin1)) {
+						model.addAttribute("price", bds);
+					}
+
 				}
 		    }
 
