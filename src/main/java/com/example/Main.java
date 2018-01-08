@@ -158,7 +158,7 @@ public class Main {
 					String bds = format(bd);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
 					if (!isNullOrEmpty(strShohin1)) {
-						if (!isNullOrEmpty(bd)) {
+						if (!isNullOrEmpty(bds)) {
 							model.addAttribute("price", "価格：" + bds + "円（税込）");
 						}
 						else {
