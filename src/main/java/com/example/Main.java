@@ -148,13 +148,14 @@ public class Main {
 				Double bd = rs.getDouble("goods1Value__c");
 				if (bd == 0) {
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c")));
-					form.setVal2(nullToEmpty(rs.getString("goods1Value__c")));
+					model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c"));
+
 				}
 				else {
 					bd = bd * 1.08;
 					String bds = String.valueOf(bd);
 					output.add("Herokuコネクトサンプル名：" + nullToEmpty(rs.getString("Name")) + "　　　" + "商品１：" + nullToEmpty(rs.getString("goods1__c"))+ "　　　" + "商品１価格：" + nullToEmpty(rs.getString("goods1Value__c"))+ "　　　" + "商品１価格(税込)：" + bds);
-					form.setVal2(nullToEmpty(rs.getString("goods1Value__c")));
+					model.addAttribute("price", nullToEmpty(rs.getString("goods1Value__c"));
 				}
 		    }
 
